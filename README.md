@@ -1,5 +1,5 @@
 # CSRSS Powershell Script
-Checks the Systems CSRSS Dump for file-paths, then checks the files for 
+Checks the Systems CSRSS Dump for file-paths, then checks the files for signatures to ensure file integrity or detect traces of malware on a system.
 
 ### Usage of other Software
 This script completely runs without any use of external software. Simply open Powershell and run:
