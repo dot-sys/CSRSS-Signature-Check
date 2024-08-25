@@ -13,6 +13,9 @@
 # Version 1.0
 # 25 - August - 2024
 
+# MIT License
+# Copyright (c) 2024 dot-sys
+
 $csrsspath = "C:\temp\dump\csrss"
 New-Item -Path "$csrsspath" -ItemType Directory -Force | Out-Null
 Set-Location $csrsspath
@@ -47,27 +50,22 @@ if (-not (Test-Path $csrss_filePath1) -or -not (Test-Path $csrss_filePath2)) {
     exit
 }
 
-$csrss_patterns = @{
-    exe       = "^[A-Za-z]:\\.+\.exe$"
-    dll       = "^[A-Za-z]:\\.+\.dll$"
-    unmatched = "^[\\?]{2}.*\.(dll|exe)$"
-}
-
 $csrss_content = Get-Content $csrss_filePath1, $csrss_filePath2
 
 $csrss_paths = @{
-    exe       = @()
-    dll       = @()
-    unmatched = @()
+    exe = @()
+    dll = @()
 }
 
+$regexPath = "[A-Z]:\\[^:\s]+?\.(dll|exe)"
+
 foreach ($line in $csrss_content) {
-    if ($line -match ":\s*(.*\.(dll|exe))") {
-        $csrss_path = $matches[1]
-        switch -Wildcard ($csrss_path) {
-            {$csrss_path -match $csrss_patterns.exe}       { $csrss_paths.exe += $csrss_path }
-            {$csrss_path -match $csrss_patterns.dll}       { $csrss_paths.dll += $csrss_path }
-            {$csrss_path -match $csrss_patterns.unmatched} { $csrss_paths.unmatched += $csrss_path }
+    if ($line -match $regexPath) {
+        $csrss_path = $matches[0]
+        if ($csrss_path -like "*.exe") {
+            $csrss_paths.exe += $csrss_path
+        } elseif ($csrss_path -like "*.dll") {
+            $csrss_paths.dll += $csrss_path
         }
     }
 }
