@@ -1,6 +1,17 @@
-#MIT License
-#Copyright (c) 2024 dot-sys
-
+# CSRSS Signature Check Script
+# For analysing signatures in CSRSS Strings
+#
+# Author:
+# Created by dot-sys under MIT license
+# This script is not related to any external Project.
+#
+# Usage:
+# Use with Powershell 5.1 and NET 4.0 or higher.
+# Running PC Checking Programs, including this script, outside of PC Checks may have impact on the outcome.
+# It is advised not to use this on your own.
+#
+# Version 1.0
+# 25 - August - 2024
 
 $csrsspath = "C:\temp\dump\csrss"
 New-Item -Path "$csrsspath" -ItemType Directory -Force | Out-Null
