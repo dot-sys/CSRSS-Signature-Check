@@ -13,9 +13,6 @@
 # Version 1.0
 # 25 - August - 2024
 
-# MIT License
-# Copyright (c) 2024 dot-sys
-
 $csrsspath = "C:\temp\dump\csrss"
 New-Item -Path "$csrsspath" -ItemType Directory -Force | Out-Null
 Set-Location $csrsspath
